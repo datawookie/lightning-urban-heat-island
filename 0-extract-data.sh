@@ -17,19 +17,19 @@ do
   #
   # Houston
   #
-  $LOC2LOC -n 31.76 -s 27.76 -e -93.36 -w -97.36 -I . -O data -p houston -l $g
+  $LOC2LOC -n 32.76 -s 26.76 -e -92.36 -w -98.36 -I . -O data -p houston -l $g
   #
   # Atlanta
   #
-  $LOC2LOC -n 35.75 -s 31.75 -e -82.39 -w -86.39 -I . -O data -p atlanta -l $g
+  $LOC2LOC -n 36.75 -s 30.75 -e -81.39 -w -87.39 -I . -O data -p atlanta -l $g
   #
   # Washington DC
   #
-  $LOC2LOC -n 40.90 -s 36.90 -e -75.04 -w -79.04 -I . -O data -p washington -l $g
+  $LOC2LOC -n 41.90 -s 35.90 -e -74.04 -w -80.04 -I . -O data -p washington -l $g
   #
   # Johannesburg
   #
-  $LOC2LOC -n -24.20 -s -28.20 -e 30.08 -w 26.08 -I . -O data -p johannesburg -l $g
+  $LOC2LOC -n -23.20 -s -29.20 -e 31.08 -w 25.08 -I . -O data -p johannesburg -l $g
   #
   rm -f $g
 done

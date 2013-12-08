@@ -1,3 +1,5 @@
+library(geosphere)
+
 # Locations of cities
 #
 houston      = c(lon = -95.36, lat =  29.76)
