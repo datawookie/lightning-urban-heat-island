@@ -9,9 +9,11 @@ LOC2LOC=$HOME/bin/loc2loc
 
 DATADIR=/media/8396dee6-3b86-4313-bb77-27c78b796c9e/wwlln/
 
-for f in $DATADIR/A2011????.loc.bz2
+for f in $DATADIR/A201[012]????.loc.bz2
 do
   g=`basename $f .bz2`
+  #
+  echo $g
   #
   bunzip2 -dc $f >$g
   #
