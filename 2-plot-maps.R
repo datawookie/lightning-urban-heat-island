@@ -1,5 +1,6 @@
 library(ggmap)
 library(gridExtra)
+library(plotrix)
 
 # http://www.r-bloggers.com/visualising-crime-hotspots-in-england-and-wales-using-ggmap-2/
 
@@ -66,6 +67,13 @@ plot.map <- function(map, name) {
     theme(text = element_text(size = 18))
   #
   grid.arrange(p1, p2, ncol = 2, widths = c(0.7, 0.3))
+  #
+  # Test whether the histogram is uniformly distributed (not sure whether this is meaningful though since
+  # distributions which are clearly not uniform are still giving p ~ 1!)
+  #
+  h = weighted.hist(W$dist, W$weight, breaks = seq(0, rmax, rbin), plot = FALSE)
+  #
+  print(chisq.test(h$counts))
 }
 
 # -----------------------------------------------------------------------------------------------------------
