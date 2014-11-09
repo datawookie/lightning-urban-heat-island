@@ -1,3 +1,16 @@
+#  CHECK THIS OUT:#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#  CHECK THIS OUT:
+#
+# http://www.everydayanalytics.ca/2014/09/5-ways-to-do-2d-histograms-in-r.html 
+
 library(ggmap)
 library(gridExtra)
 library(plotrix)

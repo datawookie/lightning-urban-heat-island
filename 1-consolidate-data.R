@@ -2,16 +2,21 @@ library(geosphere)
 
 # Locations of cities
 #
-houston      = c(lon = -95.36, lat =  29.76)
-atlanta      = c(lon = -84.39, lat =  33.75)
-washington   = c(lon = -77.04, lat =  38.90)
-johannesburg = c(lon =  28.08, lat = -26.20)
+city = read.table(text ="
+houston       -95.36  29.76
+atlanta       -84.39  33.75
+washington    -77.04  38.90
+johannesburg   28.08 -26.20
+bloemfontein   26.22 -29.18
+durban         31.05 -29.88
+capetown       18.42 -33.92
+", col.names = c("name", "lat", "lon"))
 
 rmax = 250
 
-load.data <- function(city) {
-  print(city)
-  files = list.files(path = "data", pattern = paste0("*", city, ".loc"), full.names = TRUE)
+load.data <- function(C) {
+  print(C)
+  files = list.files(path = "data", pattern = paste0("*", C, ".loc"), full.names = TRUE)
   
   W = lapply(files, function(f) {
     print(f)
@@ -26,7 +31,7 @@ load.data <- function(city) {
   #
   names(W) <- c("date", "time", "lat", "lon")
   #
-  W$dist = distHaversine(get(city), W[, c("lon", "lat")], r = 6378.137)
+  W$dist = distHaversine(subset(city, name == C)[, c("lon", "lat")], W[, c("lon", "lat")], r = 6378.137)
   #
   # Retain only "nearby" data
   #
@@ -43,10 +48,8 @@ load.data <- function(city) {
   W
 }
 
-CITIES = c("atlanta", "houston", "washington", "johannesburg")
+wwlln <- lapply(city$name, load.data)
 
-wwlln <- lapply(CITIES, load.data)
-
-names(wwlln) <- CITIES
+names(wwlln) <- city$name
 
 save(wwlln, file = "data/wwlln-data.RData")
