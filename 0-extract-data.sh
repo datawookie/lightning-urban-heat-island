@@ -7,15 +7,17 @@
 
 LOC2LOC=$HOME/bin/loc2loc
 
-DATADIR=/media/8396dee6-3b86-4313-bb77-27c78b796c9e/wwlln/
+DATADIR=/media/colliera/8396dee6-3b86-4313-bb77-27c78b796c9e/wwlln/
 
-for f in $DATADIR/A200[56789]????.loc.bz2 $DATADIR/A201[0123]????.loc.bz2
+rm -f data/*.loc
+
+for f in $DATADIR/A200[456789]????.loc $DATADIR/A201[01234]????.loc
 do
   g=`basename $f .bz2`
   #
   echo $g
   #
-  bunzip2 -dc $f >$g
+  cp $f $g
   #
   # Houston
   #

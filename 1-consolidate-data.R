@@ -1,4 +1,5 @@
 library(geosphere)
+library(plyr)
 
 # Locations of cities
 #
@@ -10,7 +11,7 @@ johannesburg   28.08 -26.20
 bloemfontein   26.22 -29.18
 durban         31.05 -29.88
 capetown       18.42 -33.92
-", col.names = c("name", "lat", "lon"))
+", col.names = c("name", "lon", "lat"))
 
 rmax = 250
 
@@ -27,7 +28,7 @@ load.data <- function(C) {
     return(d)
   })
   #
-  W = do.call(rbind, W)[, 1:4]
+  W = rbind.fill(W)[, 1:4]
   #
   names(W) <- c("date", "time", "lat", "lon")
   #

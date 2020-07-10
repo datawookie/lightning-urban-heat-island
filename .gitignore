@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+data/*
+fig/*
+*.Rproj
+*.dvi
+*.log
+*.aux
